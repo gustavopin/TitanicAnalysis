@@ -1,0 +1,1 @@
+This project is part of the Titanic Challenge proposed by [Kaggle](https://www.kaggle.com/competitions/titanic/data)
