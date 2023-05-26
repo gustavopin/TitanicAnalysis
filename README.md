@@ -1,1 +1,5 @@
 This project is part of the Titanic Challenge proposed by [Kaggle](https://www.kaggle.com/competitions/titanic/data)
+
+It was developed for a begginer to understand and do a simple machine learning module to analyse the people who died and who survived and determine if there is a certain randomness to the people who could save themselves or if they were chosen somewhow.
+
+Titanic was a ocean liner that transported 2243 people (crew and passengers) from England no the United States, but while passing through an iceberg area, it was hit by one and sank. The tragedy made more than 1500 victims, making it the deadliest ocean linear/cruise ship disaster in "times of peace". It had the capacity to hold 48 lifeboats, but instead was equipped with only 20 that could hold 1178 passengers, not nearly enough to save everyone abord.
