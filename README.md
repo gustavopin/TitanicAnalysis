@@ -88,11 +88,17 @@ Looking at this table we can see that:
 
  - For 'Survived':
      - Within the train.csv we have 38.38% of survivability
-     
+
+We can look at the distribution of the variables within the histogram grid below:
+
+![Histogram](Images/histogram.png 'Histogram')
+
 ### Bivariate Analysis:
-Here we need to have a look at both the correlation matrix and the correlation table:
+Here we need to have a look at the correlation table:
 
 ![Correlation table](Images/correlation_table.png 'Correlation Table')
+
+And correlation matrix:
 
 ![Correlation matrix](Images/correlation_matrix.png 'Correlation Matrix')
 
@@ -104,31 +110,47 @@ Those two alone do not make a full bivariate analysis, but we can have a look at
  - The output variable 'survived' and 'sex' have a 0.54 coefficiente, meaning that one sex had more people surviving (probably male because they represent almost 65% of the crew/passengers)
  - Some numerical variables are natural numbers (1, 2, 3...), making them hard to compare (SibSp, Parch)
     - This can be improved by making scatter plots points with transparency so we can have a better look at how those variables interact
-    
-## Second Part
-This involve a Machine Learning module.
 
-I already started one and the results can be viewed within the file [results]('/results.csv').
+We can take a look at the pairplot generated to see the interaction of the variables:
+
+![Pairplot](Images/pairplot.png 'Pairplot')
+
+From we can assume some things:
+ - Those who paid much more than the other passengers, survived. This can be seein within the comparison of the variables 'Fare' and 'Survived'
+ - 'Age' doens't seem to correlate with the output 'Survived'.
+ - There is a correlation with people who embarked in the third platform and survided.
+ - PassengerId is just a identification number and the comparisons generated with the other variables don't indicate anything.
+ - The 'Sibsp' and 'Parch' indicate that most of the families had between 1 and 4 members, but some can be seen having 8 members.
+
+The correlation matrix and table, as well as other comparisons can be seem within this [report](Images/report.html) here.
+
+## Second Part
+This involves a Machine Learning module.
 
 To start it I cleaned the data, removing some variables judged non valuables, like the PassengerId, Cabin, Ticket and Name.
 
 After that, it was necessary to fill the empty cells, so I used the median to do the inputation.
 
-I understand that this is not the best way to make an inputation, but this is not the objective of the project and it is listed to be developed in future projects, but this model was made to be simple and viable.
+*I understand that this is not the best way to make an inputation*, but this is not the objective of the project and it is listed to be developed in future projects, but this model was made to be simple and viable.
 
 I also needed to fill the Embarked variable, and for the empty cells I chose 'U' to repersent the 'unknown'.
 
 The next step was to transform those categories ('Sex' and 'Embarked') in numeric values. That is why I used a loop function with a .fit_transform() command.
  - This made 'male' and 'female' 1 and 0 respectively.
  - The embarked signs ('C', 'Q', 'S', 'U') became 0, 1, 2 and 3.
+
+The next image shows how it turned out:
+
+![Data Clean](Images/data_clean.png 'Data Clean')
+
+I than chose a Logistic Regression as the module for this machile learning. I chose this because it can deal with boolean variables and the interaction between the variables doesn't need to be linear, so it has more room to work.
+
+The data was than divided into 75/25 for train and test respectively. I separated the 'Survived' column from the test data so I could compare to the results of the code later.
+
+After the calculations, the model ended with a 84% accuracy, which is good and bad:
+ - Comparing with the work I could do by hand, 84% is a really good result.
+ - But, in a real life situation, the prediction of who lives and dies has a heavy weight and cannot be measured.
  
-I than chose a Logistic Regression as the module for this machile learning.
+The output variables were stored within a csv file that now contains a 'Output' column, indicating the results obtained by the code, a 'Survived' column that is the real occurancy and a 'Results Comparison', indicating with a true or false if the algorithm got hte right results.
 
-*again: it probably has some room to improve with other ML methods, but this will be developed within the next week of the project.
-
-This module resulted in an accuracy of 81%. Which is a good prediction, seeing that if I had done it myself I could only choose randomly who would survive the incident, with a 50/50 chance (as a person, I cannot predict this kind of thing).
-
-The results were than saved withing the results.csv file.
-
-## For Now
-There is room to improve within the exploratory analysis. After it is done completely with good comparisons between the variables and good conclusions I need to make a better Machine Learning module to than see the outcome and have a understanding of the possible randomness of the survivability.
+Everything can be seen in the file [results](results.csv)
