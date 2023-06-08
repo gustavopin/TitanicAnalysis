@@ -153,4 +153,4 @@ After the calculations, the model ended with a 84% accuracy, which is good and b
  
 The output variables were stored within a csv file that now contains a 'Output' column, indicating the results obtained by the code, a 'Survived' column that is the real occurancy and a 'Results Comparison', indicating with a true or false if the algorithm got hte right results.
 
-Everything can be seen in the file [results](results.csv)
+Everything can be seen in the file [results](results.csv).
